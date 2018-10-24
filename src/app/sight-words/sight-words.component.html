@@ -1,21 +1,23 @@
 
-<div class="container-fluid">
 
+<section class="card text-center w-100" >
 
+      <div *ngIf="word; then primaryBlock; else elseBlock"></div>
+      <ng-template #primaryBlock><h1 class="card-title text-center">{{word}}</h1></ng-template>
+      <ng-template #elseBlock><h1 class="card-title text-center">  &nbsp;&nbsp;&nbsp;&nbsp;    </h1></ng-template>
 
-<div class="card" style="width: 18rem;">
-  <div class="container-fluid">
-  <h5 class="card-title text-center">{{word}}</h5>
-  <div class="card-body">
+    <div class="card-footer text-muted">
+      <div class="container">
 
-    <!--p class="card-text"></p-->
-    <a href="#" class="btn btn-primary" (click) = "next()">Next</a>
-    <ngb-progressbar type="success" value={{progress}}>Progress</ngb-progressbar>
+      <a href="#" class="btn btn-primary btn-sm btn-block" (click) = "next()">
+          <div *ngIf="word; then nextBlock; else beginBlock">Next</div>
+          <ng-template #nextBlock>Next</ng-template>
+          <ng-template #beginBlock>Begin</ng-template>
+
+      </a>
+      <ngb-progressbar type="success" value={{progress}}>Progress</ngb-progressbar>
    </div>
   </div>
-</div>
-<p>
-  sight-words works!
-</p>
-</div>
+</section>
+
 
