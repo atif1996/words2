@@ -26,7 +26,10 @@ export class SightWordsComponent implements OnInit {
   word = '';
   list: Array<string>;
   index = -1;
-  progress = 50;
+  progress = 0;
+  startTime: Date;
+  endTime: Date;
+  average: number = 0;
   constructor() {
     this.list = wordList['prek'].split(', ');
 
@@ -36,7 +39,27 @@ export class SightWordsComponent implements OnInit {
   }
 
   next(): void {
-    this.word = this.list[++this.index];
+    ++this.index;
+    if (this.index === 0) {
+      this.startTime = new Date();
+    } else {
+      const elapsed = ((new Date().getTime()) - this.startTime.getTime()) / 1000;
+      console.log('Elapsed Time');
+      console.log(elapsed);
+      this.average = elapsed / this.index;
+      console.log(this.average);
+    }
+
+    if (this.index === this.list.length) {
+      this.index = -1;
+      this.progress = 0;
+      this.word = '';
+      // this.list = wordList['noun'].split(', ');
+    } else {
+      this.word = this.list[this.index];
+      this.progress = Math.floor(((this.index+1) / this.list.length) * 100);
+    }
+  }
   }
 
 }
