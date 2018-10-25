@@ -4,6 +4,10 @@ import { Component, OnInit } from '@angular/core';
 /// Word list is coma delimited, and needs to be split
 export const wordList = {
   // tslint:disable-next-line:max-line-length
+  orange: 'I, a, and, at, big, black, blue, brown, can, go, green, in, is, it, like, me, no, on, orange, pink, purple, red, see, the, to, up, we, white, yellow, yes',
+  // tslint:disable-next-line:max-line-length
+  blue: 'an, are, as, be, by, do, eight, five, he, his, look, my, nine, one, run, said, seven, she, six, ten, this, three, too, two, us, was, will, you, zero',
+  // tslint:disable-next-line:max-line-length
   prek: 'a, and, away, big, blue, can, come, down, find, for, funny, go, help, here, I, in, is, it, jump, little, look, make, me, my, not, one, play, red, run, said, see, the, three, to, two, up, we, where, yellow, you',
   // tslint:disable-next-line:max-line-length
   k: 'all, am, are, at, ate, be, black, brown, but, came, did, do, eat, four, get, good, have, he, into, like, must, new, no, now, on, our, out, please, pretty, ran, ride, saw, say, she, so, soon, that, there, they, this, too, under, want, was, well, went, what, white, who, will, with, yes',
@@ -29,10 +33,9 @@ export class SightWordsComponent implements OnInit {
   progress = 0;
   startTime: Date;
   endTime: Date;
-  average: number = 0;
+  average = 0;
   constructor() {
     this.list = wordList['prek'].split(', ');
-
   }
 
   ngOnInit() {
@@ -57,9 +60,8 @@ export class SightWordsComponent implements OnInit {
       // this.list = wordList['noun'].split(', ');
     } else {
       this.word = this.list[this.index];
-      this.progress = Math.floor(((this.index+1) / this.list.length) * 100);
+      this.progress = Math.floor(((this.index + 1) / this.list.length) * 100);
     }
-  }
   }
 
 }
