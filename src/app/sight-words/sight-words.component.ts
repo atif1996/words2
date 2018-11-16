@@ -8,6 +8,8 @@ export const wordList = {
   // tslint:disable-next-line:max-line-length
   blue: 'an, are, as, be, by, do, eight, five, he, his, look, my, nine, one, run, said, seven, she, six, ten, this, three, too, two, us, was, will, you, zero',
   // tslint:disable-next-line:max-line-length
+  green: 'all, am, ate, but, did, fly, for, funny, get, good, had, has, have, into, its, jump, let, little, make, name, not, now, of, our, out, play, ran, say, then, they, well, went, what, why, with, when',
+  // tslint:disable-next-line:max-line-length
   prek: 'a, and, away, big, blue, can, come, down, find, for, funny, go, help, here, I, in, is, it, jump, little, look, make, me, my, not, one, play, red, run, said, see, the, three, to, two, up, we, where, yellow, you',
   // tslint:disable-next-line:max-line-length
   k: 'all, am, are, at, ate, be, black, brown, but, came, did, do, eat, four, get, good, have, he, into, like, must, new, no, now, on, our, out, please, pretty, ran, ride, saw, say, she, so, soon, that, there, they, this, too, under, want, was, well, went, what, white, who, will, with, yes',
@@ -20,6 +22,7 @@ export const wordList = {
   // tslint:disable-next-line:max-line-length
   noun: 'apple, baby, back, ball, bear, bed, bell, bird, birthday, boat, box, boy, bread, brother, cake, car, cat, chair, chicken, children, Christmas, coat, corn, cow, day, dog, doll, door, duck, egg, eye, farm, farmer, father, feet, fire, fish, floor, flower, game, garden, girl, goodbye, grass, ground, hand, head, hill, home, horse, house, kitty, leg, letter, man, men, milk, money, morning, mother, name, nest, night, paper, party, picture, pig, rabbit, rain, ring, robin, Santa Claus, school, seed, sheep, shoe, sister, snow, song, squirrel, stick, street, sun, table, thing, time, top, toy, tree, watch, water, way, wind, window, wood',
 };
+
 
 @Component({
   selector: 'app-sight-words',
@@ -34,12 +37,24 @@ export class SightWordsComponent implements OnInit {
   startTime: Date;
   endTime: Date;
   average = 0;
+
+  shuffleArray(array: Array<string>): void {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   constructor() {
-    this.list = wordList['prek'].split(', ');
+    this.list = wordList['green'].split(', ');
+    this.shuffleArray(this.list);
   }
 
   ngOnInit() {
   }
+
+
+
 
   next(): void {
     ++this.index;
