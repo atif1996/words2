@@ -9,6 +9,7 @@ export const wordList = {
   blue: 'an, are, as, be, by, do, eight, five, he, his, look, my, nine, one, run, said, seven, she, six, ten, this, three, too, two, us, was, will, you, zero',
   // tslint:disable-next-line:max-line-length
   green: 'all, am, ate, but, did, fly, for, funny, get, good, had, has, have, into, its, jump, let, little, make, name, not, now, of, our, out, play, ran, say, then, they, well, went, what, why, with, when',
+  yellow: 'away, came, come, could, does, down, find, from, give, goes, going, help, may, must, new, please, pretty, ride, saw, some, soon, that, there, want, were, when, where, who, would, your',
   // tslint:disable-next-line:max-line-length
   prek: 'a, and, away, big, blue, can, come, down, find, for, funny, go, help, here, I, in, is, it, jump, little, look, make, me, my, not, one, play, red, run, said, see, the, three, to, two, up, we, where, yellow, you',
   // tslint:disable-next-line:max-line-length
@@ -46,7 +47,7 @@ export class SightWordsComponent implements OnInit {
   }
 
   constructor() {
-    this.list = wordList['green'].split(', ');
+    this.list = wordList['yellow'].split(', ');
     this.shuffleArray(this.list);
   }
 
